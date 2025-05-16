@@ -160,6 +160,8 @@ function obtenerRegistros() {
 // Cargar y mostrar registros recientes
 function cargarRegistrosRecientes() {
     const registrosContainer = document.getElementById('registros-container');
+    const registrosCounter = document.getElementById('registros-counter');
+    
     if (!registrosContainer) {
         console.error('No se encontró el contenedor de registros');
         return;
@@ -168,6 +170,17 @@ function cargarRegistrosRecientes() {
     // Obtener registros y ordenarlos por fecha (más reciente primero)
     const registrosGuardados = obtenerRegistros();
     console.log('Registros guardados:', registrosGuardados);
+    
+    // Actualizar el contador de registros
+    if (registrosCounter) {
+        registrosCounter.textContent = registrosGuardados.length;
+        
+        // Añadir efecto visual al contador
+        registrosCounter.classList.remove('counter-updated');
+        setTimeout(() => {
+            registrosCounter.classList.add('counter-updated');
+        }, 10);
+    }
     
     const registros = registrosGuardados
         .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
@@ -301,12 +314,25 @@ function obtenerObjetivos() {
 // Cargar y mostrar objetivos
 function cargarObjetivos() {
     const objetivosLista = document.getElementById('objetivos-lista');
+    const objetivosCounter = document.getElementById('objetivos-counter');
+    
     if (!objetivosLista) return;
     
     // Obtener objetivos
     const objetivos = obtenerObjetivos();
     
-    // Limpiar contefnedor
+    // Actualizar el contador de objetivos
+    if (objetivosCounter) {
+        objetivosCounter.textContent = objetivos.length;
+        
+        // Añadir efecto visual al contador
+        objetivosCounter.classList.remove('counter-updated');
+        setTimeout(() => {
+            objetivosCounter.classList.add('counter-updated');
+        }, 10);
+    }
+    
+    // Limpiar contenedor
     objetivosLista.innerHTML = '';
     
     // Mostrar mensaje si no hay objetivos
