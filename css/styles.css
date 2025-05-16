@@ -325,6 +325,38 @@ footer {
   color: var(--text-secondary);
   margin-top: auto;
   border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.github-link a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-tertiary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.github-link a:hover {
+  border-color: var(--accent-tertiary);
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.github-link svg {
+  transition: transform 0.3s ease;
+}
+
+.github-link a:hover svg {
+  transform: rotate(360deg);
 }
 
 /* Notificación */
